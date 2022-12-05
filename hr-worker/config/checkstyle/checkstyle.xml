@@ -1,0 +1,146 @@
+<?xml version="1.0"?>
+<!DOCTYPE module PUBLIC "-//Puppy Crawl//DTD Check Configuration 1.1//EN"
+    "http://www.puppycrawl.com/dtds/configuration_1_1.dtd">
+
+<module name="Checker">
+    <property name="localeLanguage" value="en"/>
+
+    <module name="SuppressionFilter">
+        <property name="file" value="config/checkstyle/suppressions.xml"/>
+    </module>
+
+    <module name="TreeWalker">
+
+        <!-- Rede inspection code rules -->
+
+        <module name="MultipleVariableDeclarations"/>
+
+        <module name="AvoidStarImport"/>
+        <module name="UnusedImports">
+            <property name="processJavadoc" value="true"/>
+        </module>
+        <module name="IllegalImport"/>
+
+        <!-- No public fields -->
+        <module name="VisibilityModifier">
+            <property name="protectedAllowed" value="true"/>
+        </module>
+
+        <module name="DeclarationOrder"/>
+
+        <module name="ConstantName"/>
+        <module name="MethodName">
+            <property name="format" value="^([a-z][a-zA-Z]*[_]?)+$" />
+        </module>
+        <module name="PackageName">
+            <property name="format" value="^[a-z]+(\.[a-zA-z][a-zA-Z0-9]*)*$"/>
+        </module>
+        <module name="TypeName">
+            <property name="tokens" value="CLASS_DEF, INTERFACE_DEF"/>
+        </module>
+
+        <!-- No if/else/do/for/while without braces -->
+        <module name="NeedBraces"/>
+        <!-- Switch statements should be complete and with independent cases -->
+        <module name="FallThrough"/>
+        <module name="MissingSwitchDefault"/>
+
+
+        <!-- no System.gc() -->
+        <module name="Regexp">
+            <property name="format" value="System\.gc"/>
+            <property name="illegalPattern" value="true"/>
+        </module>
+
+        <!-- no getRuntime().gc() -->
+        <module name="Regexp">
+            <property name="format" value="getRuntime\(\)\.gc"/>
+            <property name="illegalPattern" value="true"/>
+        </module>
+
+        <!-- no System.runFinalization() -->
+        <module name="Regexp">
+            <property name="format" value="System\.runFinalization"/>
+            <property name="illegalPattern" value="true"/>
+        </module>
+
+        <!-- No System.out.println() statements -->
+        <module name="Regexp">
+            <!-- no sysouts -->
+            <property name="format" value="System\.out\.println"/>
+            <property name="illegalPattern" value="true"/>
+        </module>
+
+        <!-- No System.out.err() statements -->
+        <module name="Regexp">
+            <!-- no sysouts -->
+            <property name="format" value="System\.err\.println"/>
+            <property name="illegalPattern" value="true"/>
+        </module>
+
+
+        <!-- Operator must be at end of wrapped line -->
+        <module name="OperatorWrap">
+            <property name="option" value="eol"/>
+        </module>
+
+
+        <!-- Interfaces must be types (not just constants) -->
+        <module name="InterfaceIsType"/>
+
+        <!-- Must have class / interface header comments -->
+        <module name="JavadocType"/>
+
+        <!-- Disallow unnecessary instantiation of Boolean, String -->
+        <module name="IllegalInstantiation">
+            <property name="classes" value="java.lang.Boolean, java.lang.String"/>
+        </module>
+
+        <!-- Utility class should not be instantiated, they must have a private constructor -->
+        <module name="HideUtilityClassConstructor"/>
+        <module name="SuppressionXpathSingleFilter">
+            <property name="checks" value="HideUtilityClassConstructor"/>
+            <property name="query"
+                      value="//*[MODIFIERS//*[@text = 'UtilityClass' or @text='NoArgsConstructor' or @text = 'SpringBootApplication']]/descendant-or-self::node()"/>
+        </module>
+
+        <!-- No trailing whitespace -->
+        <module name="Regexp">
+            <property name="format" value="[ \t]+$"/>
+            <property name="illegalPattern" value="true"/>
+            <property name="message" value="Trailing whitespace"/>
+        </module>
+
+
+        <!-- Use a consistent way to put modifiers -->
+        <module name="RedundantModifier"/>
+        <module name="ModifierOrder"/>
+
+        <!-- Don't add up parentheses when they are not required -->
+        <module name="UnnecessaryParentheses"/>
+
+        <!--  Don't use too widespread catch (Throwable)  -->
+        <module name="IllegalCatch">
+            <property name="illegalClassNames" value="java.lang.Throwable"/>
+        </module>
+
+        <!-- Don't use = or != for string comparisons -->
+        <module name="StringLiteralEquality"/>
+
+        <!-- String literals more than one character long should not be repeated several times -->
+        <!-- the "unchecked" string is also accepted to allow @SuppressWarnings("unchecked") -->
+        <module name="MultipleStringLiterals">
+            <property name="ignoreStringsRegexp" value='^(("")|(".")|("unchecked"))$'/>
+        </module>
+
+    </module>
+
+    <!-- No tabs allowed! -->
+    <module name="FileTabCharacter"/>
+
+    <!-- Require files to end with newline characters -->
+    <module name="NewlineAtEndOfFile">
+        <property name="lineSeparator" value="lf"/>
+    </module>
+
+</module>
