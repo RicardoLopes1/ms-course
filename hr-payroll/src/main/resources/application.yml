@@ -5,7 +5,3 @@ server:
 spring:
   application:
     name: hr-payroll
-
-# hr-worker host
-hr-worker:
-  host: http://localhost:8001
