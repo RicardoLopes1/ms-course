@@ -1,11 +1,17 @@
-# port and name
-server:
-  port: 8101
-
+# application name
 spring:
   application:
     name: hr-payroll
 
-hr-worker:
-  ribbon:
-    listOfServers: http://localhost:8001, http://localhost:8002
+
+# port and name
+server:
+  port: 8101
+
+# eureka client configuration
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+    # register-with-eureka: true
+    # fetch-registry: true
