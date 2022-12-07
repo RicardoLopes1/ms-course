@@ -2,6 +2,7 @@ package br.com.rlopes.hrworker.controller;
 
 import java.util.List;
 
+import org.springframework.core.env.Environment;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -15,7 +16,9 @@ import br.com.rlopes.hrworker.mapper.GenericMapper;
 import br.com.rlopes.hrworker.service.WorkerService;
 import br.com.rlopes.hrworker.util.FilterOperator;
 import lombok.AllArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 
+@Slf4j
 @AllArgsConstructor
 @RestController
 @RequestMapping("/workers")
@@ -23,6 +26,7 @@ public class WorkerController {
 
     private final WorkerService workerService;
     private final GenericMapper mapper;
+    private Environment env;
 
     @GetMapping
     public ResponseEntity<List<WorkerDTO>> findAll(
@@ -47,6 +51,7 @@ public class WorkerController {
 
     @GetMapping("/{id}")
     public ResponseEntity<WorkerDTO> findById(@PathVariable Long id) {
+        log.info("PORT = " + env.getProperty("local.server.port"));
         var worker = workerService.findById(id);
         return ResponseEntity.ok(mapper.map(worker, WorkerDTO.class));
     }

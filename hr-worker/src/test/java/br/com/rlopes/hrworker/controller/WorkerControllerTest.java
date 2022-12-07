@@ -12,6 +12,7 @@ import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
+import org.springframework.core.env.Environment;
 import org.springframework.http.HttpStatus;
 
 import br.com.rlopes.hrworker.dto.WorkerDTO;
@@ -36,6 +37,9 @@ class WorkerControllerTest {
 
     @Mock
     private List<WorkerDTO> workersDtoMock;
+
+    @Mock
+    private Environment envMock;
 
     @InjectMocks
     private WorkerController workerController;

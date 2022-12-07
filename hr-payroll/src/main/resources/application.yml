@@ -5,3 +5,7 @@ server:
 spring:
   application:
     name: hr-payroll
+
+hr-worker:
+  ribbon:
+    listOfServers: http://localhost:8001, http://localhost:8002

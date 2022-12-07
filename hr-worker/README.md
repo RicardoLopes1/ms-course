@@ -68,6 +68,17 @@ No Windows
 ``` bash
 mvnw.cmd spring-boot:run
 ```
+
+### Para subir mais de uma instância
+Para subir mais de uma instância do projeto hr-worker, faça:
+
+Abra um novo terminal dentro do projeto e rode os comandos:
+``` bash
+chmod +x startup.sh
+./startup.sh
+```
+Agora basta definir em qual porta você quer que a nova instância inicie.
+
 ---
 ## Documentação
 
