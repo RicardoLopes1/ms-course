@@ -1,6 +1,7 @@
 # default port
 server:
-  port: 8001
+  # port: 8001
+  port: ${PORT:0}
 
 # eureka client configuration
 eureka:
@@ -9,6 +10,8 @@ eureka:
       defaultZone: http://localhost:8761/eureka
     # register-with-eureka: false
     # fetch-registry: false
+  instance:
+    instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}
 
 spring:
   application:
