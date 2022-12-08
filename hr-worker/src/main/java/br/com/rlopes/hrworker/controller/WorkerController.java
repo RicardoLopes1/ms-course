@@ -28,6 +28,12 @@ public class WorkerController {
     private final GenericMapper mapper;
     private Environment env;
 
+    @GetMapping("/configs")
+    public ResponseEntity<Void> getConfigs() {
+        log.info("CONFIG = " + env.getProperty("test.config"));
+        return ResponseEntity.noContent().build();
+    }
+
     @GetMapping
     public ResponseEntity<List<WorkerDTO>> findAll(
         @RequestParam(value = "name", required = false) String name,
