@@ -15,6 +15,19 @@ eureka:
     # register-with-eureka: false
     # fetch-registry: false
 
+# Hystrix configuration (timeout)
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 60000
+
+ribbon:
+  ConnectTimeout: 10000
+  ReadTimeout: 20000
+
 # zuul routes
 zuul:
   routes:
