@@ -8,10 +8,23 @@ spring:
 server:
   port: 8101
 
-# eureka client configuration
+# eureka /client configuration
 eureka:
   client:
     service-url:
       defaultZone: http://localhost:8761/eureka
     # register-with-eureka: true
     # fetch-registry: true
+
+# Hystrix configuration
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 60000
+
+ribbon:
+  ConnectTimeout: 10000
+  ReadTimeout: 20000
