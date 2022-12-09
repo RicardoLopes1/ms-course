@@ -8,6 +8,8 @@ spring:
         git:
           default-label: main
           uri: https://github.com/RicardoLopes1/ms-course-configs
+          #username: ${GITHUB_USERNAME}
+          #password: ${GITHUB_PASSWORD}
 
 # server port
 server:
