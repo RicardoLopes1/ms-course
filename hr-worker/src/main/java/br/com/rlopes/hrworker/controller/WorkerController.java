@@ -2,6 +2,7 @@ package br.com.rlopes.hrworker.controller;
 
 import java.util.List;
 
+import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.core.env.Environment;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,6 +19,7 @@ import br.com.rlopes.hrworker.util.FilterOperator;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
+@RefreshScope
 @Slf4j
 @AllArgsConstructor
 @RestController
