@@ -40,3 +40,6 @@ zuul:
     user:
       path: /hr-user/**
       serviceId: hr-user
+    oauth:
+      path: /hr-oauth/**
+      serviceId: hr-oauth

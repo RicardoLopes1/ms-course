@@ -30,10 +30,6 @@ public class UserController {
     @GetMapping("/search")
     public ResponseEntity<User> findByEmail(@RequestParam String email) {
         var user = userRepository.findByEmail(email);
-        if(user == null) {
-            throw new NotFoundException("User not found!");
-        }
-
         return ResponseEntity.ok(user);
     }
 }
