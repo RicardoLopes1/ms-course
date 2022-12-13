@@ -1,0 +1,15 @@
+# application name
+spring:
+  application:
+    name: hr-api-gateway-zuul
+  cloud:
+    config:
+      uri: http://localhost:8888
+
+# actuator config
+management:
+  endpoints:
+    web:
+      exposure:
+        include:
+          - "*"

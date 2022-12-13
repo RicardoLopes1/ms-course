@@ -1,6 +1,7 @@
 package br.com.rlopes.hroauth.config;
 
 import org.springframework.context.annotation.Configuration;
+import org.springframework.core.env.Environment;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.oauth2.config.annotation.configurers.ClientDetailsServiceConfigurer;
@@ -22,6 +23,7 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
     private final JwtAccessTokenConverter accessTokenConverter;
     private final JwtTokenStore tokenStore;
     private final AuthenticationManager authenticationManager;
+    private final Environment env;
 
     @Override
     public void configure(AuthorizationServerSecurityConfigurer security) throws Exception {
@@ -37,8 +39,8 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
         int dayInSeconds = 24 * hourInSeconds;
 
         clients.inMemory()
-                .withClient("myappname123")
-                .secret(passwordEncoder.encode("myappsecret123"))
+                .withClient(env.getProperty("oauth.client.name"))
+                .secret(passwordEncoder.encode(env.getProperty("oauth.client.secret")))
                 .scopes("read", "write")
                 .authorizedGrantTypes("password")
                 .accessTokenValiditySeconds(dayInSeconds);

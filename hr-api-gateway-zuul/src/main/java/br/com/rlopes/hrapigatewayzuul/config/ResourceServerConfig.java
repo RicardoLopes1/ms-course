@@ -26,7 +26,7 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
     public void configure(HttpSecurity http) throws Exception {
         String[] publicPaths = { "/hr-oauth/oauth/token" };
         String[] operatorPaths = { "/hr-worker/**" };
-        String[] adminPaths = { "/hr-payroll/**", "/hr-user/**" };
+        String[] adminPaths = { "/hr-payroll/**", "/hr-user/**", "/actuator/**", "/hr-worker/actuator/**", "/hr-oauth/actuator/**" };
 
         http.authorizeRequests()
             .antMatchers(publicPaths).permitAll()
