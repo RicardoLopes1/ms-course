@@ -43,3 +43,4 @@ zuul:
     oauth:
       path: /hr-oauth/**
       serviceId: hr-oauth
+      sensitive-headers: Cookie,Set-Cookie
