@@ -32,7 +32,7 @@ public class WorkerController {
 
     @GetMapping("/configs")
     public ResponseEntity<Void> getConfigs() {
-        log.info("CONFIG = " + env.getProperty("test.config"));
+        log.info("CONFIG = env.getProperty(test.config)");
         return ResponseEntity.noContent().build();
     }
 
