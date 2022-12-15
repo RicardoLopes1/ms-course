@@ -80,7 +80,7 @@
 	</dependencyManagement>
 
 	<build>
-        <finalName>zuul-server</finalName>
+        <finalName>hr-api-gateway-zuul</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
