@@ -1,97 +1,30 @@
-# ${ProjectName}
-### ${Language} ${Framework/LIB}
-### Versão ${Version}
+# hr-worker
 
-## Descrição
+## Gerando imagem Docker
 
-Faça aqui uma descrição explicativa do ${ProjectName}, de forma que o leitor tenha ampla clareza sobre sua funcionalidade e utilidade.\
-Lembre-se que abaixo você terá um texto de exemplo o qual você precisa editar e refletir a realidade de seu projeto.\
-
-Configurado com as seguintes dependências:
-- Ferramentas de desenvolvimento
-    - Spring Boot DevTools
-    - Lombok
-- Web
-    - Spring Web
-- Database
-    - Spring Data JPA
-    - H2 Database
-- Outros
-    - ModelMapper
-
----
-
-
-## Pre-requisitos
-
-Antes de iniciar, se assegure que possui os requisitos abaixo:
-* Java 11
-
----
-
-## Compilação / Configuração
-
-Para compilar / instalar o ${ProjectName}, siga as seguintes etapas:
-
-Windows, Linux and macOS:
-
-- Executar o setup para convenção de mensagens de commits:
-    - No Linux
-        > `$ chmod +x ./.githooks/*` \
-        > `$ git config core.hooksPath .githook`
-
-
-Gerando o arquivo JAR:
-
-No Linux
-``` bash
-./mvnw clean install
+- Crie um arquivo na raiz do projeto com o nome de `Dockerfile` e adicione o _script_ a seguir:
+``` Dockerfile
+FROM openjdk:11
+VOLUME /tmp
+ADD ./target/hr-worker.jar hr-worker.jar
+ENTRYPOINT ["java","-jar","/hr-worker.jar"]
 ```
 
-No Windows
+Com o terminal na raiz do projeto, faça os seguintes passos:
+
+- Compile o seu projeto:
 ``` bash
-mvnw.cmd clean install
+./mvnw clean package -DskipTests
 ```
 
----
-
-## Instalação / Execução
-
-Executando o projeto:
-
-No Linux
-``` bash
-./mvnw spring-boot:run
+- Gere a imagem Docker:
+```
+docker build -t hr-worker:v1 .
 ```
 
-No Windows
+- Crie e inicie o seu container:
 ``` bash
-mvnw.cmd spring-boot:run
+docker run -P --network hr-net hr-worker:v1
 ```
-
-### Para subir mais de uma instância
-Para subir mais de uma instância do projeto hr-worker, faça:
-
-Abra um novo terminal dentro do projeto e rode os comandos:
-``` bash
-chmod +x startup.sh
-./startup.sh
-```
-Agora basta definir em qual porta você quer que a nova instância inicie.
-
----
-## Documentação
-
-Para mais detalhes, por favor, olhe a [documentação do projeto](/docs/README.md).
-
-## Histórico de versões/Autores
-
-* Versão 1.0 - Lançamento inicial
-  - [Paulo Ricardo da Silva Lopes](https://github.com/RicardoLopes1)
-
-## Licença
-
-- [Apache 2.0](https://choosealicense.com/licenses/apache-2.0/) - Herdado das dependências do Spring
-- [MIT](https://choosealicense.com/licenses/mit/) - Herdado do Lombok
 
 ---
