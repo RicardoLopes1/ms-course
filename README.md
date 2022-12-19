@@ -2,20 +2,20 @@
 
 *******
 Tabela de conteúdo
-- 1. [Descrição](#descrição)
-- 2. [Microsserviços](#microsserviços)
-  - 2.1. [hr-worker](#hr-worker) 
-  - 2.2. [hr-payroll](#hr-payroll) 
-  - 2.3. [hr-eureka-server](#hr-eureka-server) 
-  - 2.4. [hr-api-gateway-zuul](#hr-api-gateway-zuul)     
-  - 2.5. [hr-config-server](#hr-config-server) 
-  - 2.6. [hr-user](#hr-user)
-  - 2.7. [hr-oauth](#hr-oauth)
-- 3. [Configurando o Postman para produtividade](#configurando-o-postman-para-produtividade)
-  - 3.1. [Collection de testes](#collection-de-testes)
-  - 3.2. [Variáveis](#variáveis)
-  - 3.3. [Script para atribuir token à variável de ambiente do Postman](#script-para-atribuir-token-à-variável-de-ambiente-do-postman)
-- 4. [Histórico de versões/Autores](#histórico-de-versõesautores)
+1. [Descrição](#descrição)
+2. [Microsserviços](#microsserviços) \
+  2.1. [hr-worker](#hr-worker) \
+  2.2. [hr-payroll](#hr-payroll) \
+  2.3. [hr-eureka-server](#hr-eureka-server) \
+  2.4. [hr-api-gateway-zuul](#hr-api-gateway-zuul) \
+  2.5. [hr-config-server](#hr-config-server) \
+  2.6. [hr-user](#hr-user) \
+  2.7. [hr-oauth](#hr-oauth)
+3. [Configurando o Postman para produtividade](#configurando-o-postman-para-produtividade) \
+  3.1. [Collection de testes](#collection-de-testes) \
+  3.2. [Variáveis](#variáveis) \
+  3.3. [Script para atribuir token à variável de ambiente do Postman](#script-para-atribuir-token-à-variável-de-ambiente-do-postman)
+4. [Histórico de versões/Autores](#histórico-de-versõesautores)
 *******
 
 
